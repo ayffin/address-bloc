@@ -1,0 +1,23 @@
+<div>
+
+      <div class="modal-header">
+        <h2 class="modal-title">Enter user name</h2>
+
+      </div>
+      <div class="modal-body">
+        Enter a name:
+        <br/>
+        <form ng-submit="user.createUser()">
+          <div class="input-group">
+            <input type="text"  ng-model="user.username" title="name" placeholder="Enter user name" autofocus>
+            <h4>{{ user.username }}</h4>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn " type="button" ng-click="user.createUser()" ng-disabled="user.username == null">Add user</button>
+
+      </div>
+
+</div>

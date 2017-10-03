@@ -1,0 +1,24 @@
+<div>
+
+      <div class="modal-header">
+        <h2 class="modal-title">Create new room</h2>
+
+      </div>
+      <div class="modal-body">
+        Enter a room name:
+        <br/>
+        <form ng-submit="modalInstance.submit()">
+          <div class="input-group">
+            <input type="text"  ng-model="modalInstance.room" title="name" placeholder="Your room name here" autofocus>
+            <h4>{{ modalInstance.room }}</h4>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn " type="button" ng-click="modalInstance.cancel()">Cancel</button>
+        <button class="btn " type="button" ng-click="modalInstance.submit()">Create room</button>
+
+      </div>
+
+</div>

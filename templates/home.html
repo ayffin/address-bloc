@@ -1,0 +1,28 @@
+<!-- <header class="page-header">
+  <h1> Welcome to Bloc Chat</h1>
+</header> -->
+
+<main  class="main">
+  <aside  class="sidebar">
+    <div class="name">
+      <h1>Bloc Chat</h1>
+    </div>
+
+  <div class="room-list">
+
+
+    <ul ng-repeat='room in home.rooms '>
+       <li ng-click='home.changeRoom(room)'><h3>{{room.$value | uppercase}}</h3></li>
+     </ul>
+
+    <div ng-controller='ModalCtrl as modal' class="create">
+
+
+    <button class="btn" ng-click="modal.open()">New Room!</button>
+</div>
+
+</div>
+</aside>
+<ng-include src="'/templates/messages.html'"></ng-include>
+
+</main>
