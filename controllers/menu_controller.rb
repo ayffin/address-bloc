@@ -14,7 +14,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries"
-    puts "5 - Exit"
+    puts "5 - View Entry Number n"
+      puts "6 - Exit"
     print "Enter your selection:"
 
     selection = gets.to_i
@@ -41,6 +42,11 @@ class MenuController
         read_csv
         main_menu
       when 5
+        system 'clear'
+
+        view_entry
+        main_menu
+      when 6
         puts "Good-bye"
         exit(0)
       else
@@ -61,7 +67,23 @@ class MenuController
       system "clear"
      puts "End of entries"
     end
+    def view_entry
 
+      print "Entry #: "
+      entry = gets.to_i
+      address_book.entries.each_with_index do |el,n|
+        if n+1 == entry
+          system 'clear'
+          puts el.to_s
+          break
+        else
+          system 'clear'
+          puts 'Please enter the valid entry number'
+          view_entry
+        end
+      end
+
+    end
   def create_entry
     system 'clear'
     puts " New AddressBloc Entry"
