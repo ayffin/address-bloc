@@ -21,7 +21,9 @@ RSpec.describe AddressBook do
       expect(book.entries.size).to eq(0)
     end
   end
+
   describe "#add_entry" do
+
     it "adds only one entry to the address_book" do
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       expect(book.entries.size).to eq(1)
@@ -37,17 +39,19 @@ RSpec.describe AddressBook do
   end
 
   describe "#import_from_csv" do
+
     it "import correct number of entries" do
       book.import_from_csv("entries.csv")
       book_size = book.entries.size
       expect(book_size).to eq 5
     end
+
     it "it imports the first entry" do
       book.import_from_csv("entries.csv")
       entry_one = book.entries[0]
       check_entry(entry_one,'Bill',"555-555-4854", "bill@blocmail.com")
-
     end
+
     it "imports the 2nd entry" do
       book.import_from_csv("entries.csv")
       entry_two = book.entries[1]
@@ -72,18 +76,22 @@ RSpec.describe AddressBook do
       check_entry(entry_five,"Sussie","555-555-2036","sussie@blocmail.com")
     end
   end
+
   describe "#binary_search" do
+
     it "searches AddressBook for non-existed entry" do
       book.import_from_csv("entries.csv")
       entry = book.binary_search('Dan')
       expect(entry).to be_nil
     end
+
     it "searches AddressBook for Bill" do
       book.import_from_csv("entries.csv")
       entry = book.binary_search('Bill')
       expect(entry).to be_a Entry
       check_entry(entry, "Bill", "555-555-4854", "bill@blocmail.com")
     end
+
     it "searches AddressBook for Bob" do
       book.import_from_csv("entries.csv")
       entry = book.binary_search("Bob")
@@ -111,10 +119,11 @@ RSpec.describe AddressBook do
       expect(entry).to be_a Entry
       check_entry(entry, "Sussie", "555-555-2036", "sussie@blocmail.com")
     end
+
     it "searches AddressBook for Billy" do
      book.import_from_csv("entries.csv")
      entry = book.binary_search("Billy")
      expect(entry).to be_nil
-   end
+    end
   end
 end

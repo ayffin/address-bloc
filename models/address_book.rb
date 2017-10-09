@@ -45,7 +45,7 @@ class AddressBook
           lower = mid + 1
         end
     end
-        return nil
+    return nil
   end
 
 end
